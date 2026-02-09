@@ -754,15 +754,34 @@
                     </div>
                 </div>
             </div>
-            <form class="contact-form" action="https://formspree.io/f/xzdazjoj" method="POST">
+            <form class="contact-form" id="contact-form">
                 <input type="text" name="name" placeholder="Ihr Name" required>
                 <input type="email" name="email" placeholder="Ihre E-Mail-Adresse" required>
                 <input type="tel" name="phone" placeholder="Telefonnummer (optional)">
                 <textarea name="message" placeholder="Ihre Nachricht – Was führt Sie zu mir?"></textarea>
-                <input type="hidden" name="_subject" value="Neue Anfrage über die Website">
-                <input type="hidden" name="_next" value="https://www.von-sichart.de/danke.html">
                 <button type="submit" class="btn btn-primary" style="width: 100%;">Nachricht senden</button>
             </form>
+            <script>
+            document.getElementById('contact-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                var form = this;
+                var data = new FormData(form);
+                data.append('_subject', 'Neue Anfrage über die Website');
+                fetch('https://formspree.io/f/xzdazjoj', {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                }).then(function(response) {
+                    if (response.ok) {
+                        window.location.href = 'https://www.von-sichart.de/danke.html';
+                    } else {
+                        alert('Es gab ein Problem. Bitte versuchen Sie es erneut oder kontaktieren Sie mich direkt per E-Mail.');
+                    }
+                }).catch(function() {
+                    alert('Es gab ein Problem. Bitte versuchen Sie es erneut oder kontaktieren Sie mich direkt per E-Mail.');
+                });
+            });
+            </script>
         </div>
     </section>
 
