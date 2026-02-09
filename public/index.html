@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charlotte von Sichart | Paartherapie Berlin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2D4A3E;
+            --primary-light: #3D6B5A;
+            --accent: #C9A86C;
+            --cream: #FAF8F5;
+            --text: #1A1A1A;
+            --text-light: #666;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            line-height: 1.7;
+            background: var(--cream);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            background: var(--primary);
+            color: white !important;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-light) !important;
+            color: white !important;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 5% 80px;
+            background: linear-gradient(135deg, var(--cream) 0%, #E8E4DD 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 70%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(45, 74, 62, 0.03));
+            transform: rotate(-12deg);
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            line-height: 1.2;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text h1 span {
+            color: var(--accent);
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(45, 74, 62, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+            object-fit: cover;
+        }
+
+        .trust-bar {
+            background: var(--primary);
+            color: white;
+            padding: 2rem 5%;
+            text-align: center;
+        }
+
+        .trust-items {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .trust-item svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .problems {
+            padding: 100px 5%;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .problem-card {
+            background: var(--cream);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .problem-card .icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        .problem-card .icon svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+
+        .problem-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .problem-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .about {
+            padding: 100px 5%;
+            background: var(--cream);
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+            object-fit: cover;
+        }
+
+        .about-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .credentials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .credential {
+            background: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .testimonials {
+            padding: 100px 5%;
+            background: var(--primary);
+            color: white;
+        }
+
+        .testimonials .section-header h2 {
+            color: white;
+        }
+
+        .testimonials .section-header p {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .testimonial-card .stars {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .testimonial-card .author {
+            font-weight: 600;
+        }
+
+        .pricing {
+            padding: 100px 5%;
+            background: var(--cream);
+        }
+
+        .pricing-card {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+
+        .pricing-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-card .price {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 1.5rem 0;
+        }
+
+        .pricing-card .price span {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--text-light);
+        }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin: 2rem 0;
+        }
+
+        .pricing-features li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .contact {
+            padding: 100px 5%;
+            background: white;
+        }
+
+        .contact-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item .icon {
+            width: 50px;
+            height: 50px;
+            background: var(--cream);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-item h4 {
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-item p {
+            color: var(--text-light);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        footer {
+            background: var(--text);
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.7;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        @media (max-width: 900px) {
+            .hero-content,
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .trust-items {
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#" class="logo">Charlotte von Sichart</a>
+        <ul class="nav-links">
+            <li><a href="#about">Über mich</a></li>
+            <li><a href="#testimonials">Erfahrungen</a></li>
+            <li><a href="#pricing">Kosten</a></li>
+            <li><a href="#contact" class="nav-cta">Termin anfragen</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Wieder <span>zueinander</span> finden.</h1>
+                <p>Paartherapie in Berlin und online. Ich unterstütze Paare dabei, alte Muster zu durchbrechen und eine erfüllte Beziehung zu führen – mit Verständnis, Respekt und neuer Verbundenheit.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Termin anfragen</a>
+                    <a href="#about" class="btn btn-secondary">Mehr über mich</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://static.wixstatic.com/media/b32f48_fcffd6d425114de294e6b7ffa9f0e4e1~mv2.jpg/v1/fill/w_600,h_700,al_c,q_85/b32f48_fcffd6d425114de294e6b7ffa9f0e4e1~mv2.jpg" alt="Charlotte von Sichart">
+            </div>
+        </div>
+    </section>
+
+    <div class="trust-bar">
+        <div class="trust-items">
+            <div class="trust-item">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5zm-1 14.59l-3.29-3.29 1.41-1.41L11 13.17l4.88-4.88 1.41 1.41L11 16.59z"/></svg>
+                Approbierte Psychotherapeutin
+            </div>
+            <div class="trust-item">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+                Praxis in Berlin Prenzlauer Berg
+            </div>
+            <div class="trust-item">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99z"/></svg>
+                Auch online möglich
+            </div>
+        </div>
+    </div>
+
+    <section class="problems">
+        <div class="section-header">
+            <h2>Kommt Ihnen das bekannt vor?</h2>
+            <p>Viele Paare erleben ähnliche Herausforderungen. Das Wichtigste: Sie sind damit nicht allein.</p>
+        </div>
+        <div class="problem-grid">
+            <div class="problem-card">
+                <div class="icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                </div>
+                <h3>Immer dieselben Streits</h3>
+                <p>Konflikte drehen sich im Kreis, ohne dass eine Lösung gefunden wird.</p>
+            </div>
+            <div class="problem-card">
+                <div class="icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                </div>
+                <h3>Emotionale Distanz</h3>
+                <p>Sie fühlen sich wie Mitbewohner statt wie ein Liebespaar.</p>
+            </div>
+            <div class="problem-card">
+                <div class="icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                </div>
+                <h3>Vertrauensbruch</h3>
+                <p>Ein Vorfall hat das Vertrauen erschüttert und belastet die Beziehung.</p>
+            </div>
+            <div class="problem-card">
+                <div class="icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                </div>
+                <h3>Kommunikationsprobleme</h3>
+                <p>Gespräche enden in Vorwürfen oder Schweigen.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-content">
+            <div class="about-image">
+                <img src="https://static.wixstatic.com/media/b32f48_fcffd6d425114de294e6b7ffa9f0e4e1~mv2.jpg/v1/fill/w_500,h_600,al_c,q_85/b32f48_fcffd6d425114de294e6b7ffa9f0e4e1~mv2.jpg" alt="Charlotte von Sichart">
+            </div>
+            <div class="about-text">
+                <h2>Hallo, ich bin Charlotte.</h2>
+                <p>Als approbierte tiefenpsychologisch fundierte Psychotherapeutin begleite ich Paare dabei, die unbewussten Dynamiken ihrer Beziehung zu verstehen und zu verändern.</p>
+                <p>In meiner Arbeit kombiniere ich verschiedene therapeutische Ansätze, um Ihnen die bestmögliche Unterstützung zu bieten. Gemeinsam decken wir verborgene Muster auf und entwickeln neue, gesündere Wege der Kommunikation.</p>
+                <p>Mein Ziel ist es, Ihnen zu helfen, Verständnis, Respekt und Liebe in Ihrer Beziehung wiederzuentdecken.</p>
+                <div class="credentials">
+                    <span class="credential">📜 Approbation (PHB Berlin)</span>
+                    <span class="credential">🧠 Tiefenpsychologie</span>
+                    <span class="credential">💑 Systemische Paartherapie</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <div class="section-header">
+            <h2>Was Paare sagen</h2>
+            <p>Echte Erfahrungen von Paaren, die den Weg zurück zueinander gefunden haben.</p>
+        </div>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>"Nach 12 Jahren Ehe dachten wir, es sei vorbei. Charlotte hat uns geholfen, wieder miteinander zu reden – wirklich zu reden. Heute sind wir glücklicher als je zuvor."</p>
+                <div class="author">— M. & T., zusammen seit 14 Jahren</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>"Die Online-Sitzungen waren perfekt für uns. Professionell, einfühlsam und absolut vertraulich. Wir können Charlotte nur empfehlen."</p>
+                <div class="author">— S. & L., zusammen seit 5 Jahren</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>"Endlich verstehe ich, warum wir immer an denselben Punkten streiten. Das Bewusstsein für unsere Muster hat alles verändert."</p>
+                <div class="author">— A. & J., zusammen seit 8 Jahren</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <div class="section-header">
+            <h2>Investition in Ihre Beziehung</h2>
+            <p>Transparente Kosten ohne versteckte Gebühren.</p>
+        </div>
+        <div class="pricing-card">
+            <h3>Paartherapie</h3>
+            <div class="price">220€ <span>/ 90 Min</span></div>
+            <ul class="pricing-features">
+                <li>90 Minuten intensive Paarsitzung</li>
+                <li>Vor Ort in Berlin oder online</li>
+                <li>Flexible Terminvereinbarung</li>
+                <li>Vertraulich & diskret</li>
+                <li>Keine Wartezeit</li>
+            </ul>
+            <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1.5rem;">Hinweis: Paartherapie wird nicht von Krankenkassen übernommen.</p>
+            <a href="#contact" class="btn btn-primary" style="width: 100%;">Jetzt Termin anfragen</a>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="section-header">
+            <h2>Bereit für den ersten Schritt?</h2>
+            <p>Kontaktieren Sie mich für ein Erstgespräch.</p>
+        </div>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h2>So erreichen Sie mich</h2>
+                <div class="contact-item">
+                    <div class="icon">📍</div>
+                    <div>
+                        <h4>Praxis</h4>
+                        <p>Rykestraße 25, 10405 Berlin<br>Prenzlauer Berg</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">📧</div>
+                    <div>
+                        <h4>E-Mail</h4>
+                        <p>charlotte.vonsichart@outlook.de</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">📞</div>
+                    <div>
+                        <h4>Telefon</h4>
+                        <p>0163 436 93 69</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">🕐</div>
+                    <div>
+                        <h4>Termine</h4>
+                        <p>Nach Vereinbarung<br>Auch Abendtermine möglich</p>
+                    </div>
+                </div>
+            </div>
+            <form class="contact-form" action="mailto:charlotte.vonsichart@outlook.de" method="post" enctype="text/plain">
+                <input type="text" name="name" placeholder="Ihr Name" required>
+                <input type="email" name="email" placeholder="Ihre E-Mail-Adresse" required>
+                <input type="tel" name="phone" placeholder="Telefonnummer (optional)">
+                <textarea name="message" placeholder="Ihre Nachricht – Was führt Sie zu mir?"></textarea>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Nachricht senden</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Charlotte von Sichart | <a href="#">Datenschutz</a> | <a href="#">Impressum</a></p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;">Paartherapie Berlin | Einzel- und Paartherapie | Tiefenpsychologisch fundiert</p>
+    </footer>
+</body>
+</html>
