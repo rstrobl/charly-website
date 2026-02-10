@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" href="favicon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impressum | Charlotte von Sichart</title>
+    <title>Impressum | Charlotte von Sichart – Paartherapie Berlin</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
@@ -24,7 +26,12 @@
             background: var(--cream);
         }
         nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
             background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
             padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
@@ -38,10 +45,30 @@
             text-decoration: none;
             font-weight: 600;
         }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-cta {
+            background: var(--primary);
+            color: white !important;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+        }
+        .nav-cta:hover { background: var(--primary-light) !important; }
         .content {
             max-width: 800px;
             margin: 0 auto;
-            padding: 60px 5%;
+            padding: 120px 5% 60px;
         }
         h1 {
             font-family: 'Playfair Display', serif;
@@ -64,16 +91,25 @@
         footer {
             background: var(--text);
             color: white;
-            padding: 2rem 5%;
+            padding: 3rem 5%;
             text-align: center;
         }
         footer p { opacity: 0.7; }
         footer a { color: var(--accent); text-decoration: none; }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            h1 { font-size: 2rem; }
+        }
     </style>
 </head>
 <body>
     <nav>
-        <a href="index.html" class="logo">Charlotte von Sichart</a>
+        <a href="index.html" class="logo"><img src="logo.jpg" alt="Von Sichart Psychotherapie" style="height: 45px; vertical-align: middle;"></a>
+        <ul class="nav-links">
+            <li><a href="index.html#about">Über mich</a></li>
+            <li><a href="index.html#pricing">Kosten</a></li>
+            <li><a href="index.html#contact" class="nav-cta">Termin anfragen</a></li>
+        </ul>
     </nav>
 
     <div class="content">
@@ -130,7 +166,8 @@
     </div>
 
     <footer>
-        <p>© 2024 Charlotte von Sichart | <a href="datenschutz.html">Datenschutz</a> | <a href="impressum.html">Impressum</a></p>
+        <p>© 2026 Charlotte von Sichart | <a href="datenschutz.html">Datenschutz</a> | <a href="impressum.html">Impressum</a></p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;">Systemische Paartherapie in Berlin | Einzeltherapie (TfP)</p>
     </footer>
 </body>
 </html>
